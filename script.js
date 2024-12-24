@@ -3,7 +3,7 @@ const tg = window.Telegram.WebApp;
 
 // From 0.001 to 100
 const items = [
-  { name: "Coin 100", img: "img/coin.png", chance: 1 },
+  { name: "Coin 100", img: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fin.pinterest.com%2Fpin%2Fgolden-coin-png-transparent-glossy-golden-coin-icon-coin-icons-icons-coin-coin-png-image-for-free-download--827395762791812990%2F&psig=AOvVaw0_fJQusG1FxlZSqZFkiDWB&ust=1735153766179000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJDwn9WNwYoDFQAAAAAdAAAAABAE", chance: 1 },
   { name: "Premium", img: "img/korona.png", chance: 1.5},
   { name: "Coin 300", img: "img/coin.png", chance: 1}
 
