@@ -11,13 +11,16 @@ const items = [
 
 function getItem() {
   let item;
+  const totalChance = items.reduce((acc, elm) => acc + elm.chance, 0);
+  const randomChance = Math.random() * totalChance;
 
-  while (!item) {
-    const chance = Math.floor(Math.random() * 100);
-
-    items.forEach((elm) => {
-      if (chance < elm.chance && !item) item = elm;
-    });
+  let cumulativeChance = 0;
+  for (const elm of items) {
+    cumulativeChance += elm.chance;
+    if (randomChance < cumulativeChance) {
+      item = elm;
+      break;
+    }
   }
 
   return item;
@@ -70,9 +73,9 @@ function start() {
     () => {
       isStarted = false;
       item.classList.add("active");
-      const data = item.getAttribute("data-item");
-
-      sendDataToTelegram(data);
+      let data = JSON.parse(item.getAttribute("data-item"));
+      data.type = "prize";
+      sendDataToTelegram(JSON.stringify(data));
     },
     { once: true }
   );
